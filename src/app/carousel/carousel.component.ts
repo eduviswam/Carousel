@@ -56,8 +56,7 @@ export class CarouselComponent implements OnInit {
 
   getScrollAnimation() {
     return [
-      { scrollLeft: this.scrollPosition },
-      { scrollX: this.scrollPosition}
+      { scrollLeft: this.scrollPosition }
     ];
   }
 
