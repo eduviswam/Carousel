@@ -1,0 +1,27 @@
+<div class="carousel-container">
+    <h4>Related Products</h4>
+    <div id="carouselControls" class="carousel" data-bs-ride="carousel" #carouselDiv>
+        <div class="carousel-inner" #inner>
+            <div class="carousel-item active" *ngFor="let product of products.carouselData; let i=index;" #innerItem>
+                <div class="card">
+                    <div class="img-wrapper"><img [src]="product.productImageUrl" [alt]="product.name"> </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{product.name}}</h5>
+                        <p class="card-text">{{product.typeName}}</p>
+                        <a href="#" class="btn btn-primary">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselControls" data-bs-slide="prev"
+        (click) = "onPrevClick()">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselControls" data-bs-slide="next"
+        (click) = "onNextClick()">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
