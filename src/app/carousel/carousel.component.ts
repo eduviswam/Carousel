@@ -9,7 +9,7 @@ import { ProductService } from '../service/apiservice/product.service';
 })
 
 export class CarouselComponent implements OnInit {
-  
+
   errorMessage = '';
   sub!: Subscription;
   products: any = [];
@@ -39,7 +39,7 @@ export class CarouselComponent implements OnInit {
     if (this.scrollPosition < (this.carouselWidth - this.cardWidth)) {
       this.scrollPosition += this.cardWidth;
       this.carousel!.nativeElement.scrollLeft += this.scrollPosition;
-      //this.carousel!.nativeElement.scrollLeft.animate(this.getScrollAnimation(), this.getScrollAnimationTiming());     
+      //this.carousel!.nativeElement.animate(this.getScrollAnimation(), this.getScrollAnimationTiming());     
     }
   }
 
@@ -49,14 +49,15 @@ export class CarouselComponent implements OnInit {
 
     if (this.scrollPosition > 0) {
       this.scrollPosition -= this.cardWidth;
-      this.carousel!.nativeElement.scrollLeft -= this.scrollPosition;
-      //this.carousel!.nativeElement.scrollLeft.animate(this.getScrollAnimation(), this.getScrollAnimationTiming());
+      this.carousel!.nativeElement.scrollLeft = this.scrollPosition;
+      //this.carousel!.nativeElement.animate(this.getScrollAnimation(), this.getScrollAnimationTiming());
     }
   }
 
   getScrollAnimation() {
     return [
-      { scrollLeft: this.scrollPosition }
+      { scrollLeft: this.scrollPosition },
+      { scrollX: this.scrollPosition}
     ];
   }
 
